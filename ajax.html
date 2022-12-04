@@ -8,6 +8,8 @@
   </head>
   <body>
     <button onclick="showCountries()">Show Countries</button>
+<div id="feed"></div>
+
     <script>
       function showCountries() {
         let xhr = new XMLHttpRequest();
@@ -17,6 +19,12 @@
             console.log("success");
             let countries = JSON.parse(this.response)
             console.log(countries)
+            countries.forEach(country=>{
+                const countryCart = document.createElement("div");
+                countryCart.innerHTML = country.name
+                document.getElementById("feed").appendChild(countryCart)
+
+            })
           }
         };
         xhr.send()
