@@ -10,8 +10,13 @@
     <button onclick="showCountries()">Show Countries</button>
     <script>
       function showCountries() {
-        let any = new XMLHttpRequest();
-        xhr.open("GET", "https://restcountries.com/v2/all", true)
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://restcountries.com/v2/all", true);
+        xhr.onload = function () {
+          if (xhr.status == 200) {
+            console.log("success");
+          }
+        };
       }
     </script>
   </body>
